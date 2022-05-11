@@ -1,6 +1,6 @@
 body {
     background-color: #f4f4f4;
-    font: 14/1.5 verdana;
+    font-family: Verdana, Tahoma, sans-serif;
 }
 
 /* global */
@@ -25,7 +25,6 @@ header {
     margin-top: 3em;
     font-weight: bold;
     font-size: small;
-
 }
 
 #form h3 {
@@ -37,7 +36,7 @@ header {
     height: auto;
     background-origin: padding-box;
     font-size: larger;
-    width: 20em;
+    width: 350px;
     border-width: 3px;
 }
 

@@ -1,13 +1,12 @@
 const syotettyNimi = document.querySelector("#nimi input");
-const virhe = document.querySelector(".virhe");
 const listanTulostus = document.querySelector("#nimet");
 const lista = [];
 let laskuri =0;
-const limit = 10;
 
-document.getElementById("form").addEventListener("submit", listalleArray);
+document.getElementById("#form button").addEventListener("submit", listalle);
+document.getElementById("#form button2").addEventListener("submit", listaltaPois)
 
-function listalleArray(event) {
+function listalle(event) {
     event.preventDefault();
 
     //Kenttä tyhjä vai ei. Jos ei niin lisää arrayyn
@@ -19,18 +18,29 @@ function listalleArray(event) {
 
     } else {
         lista[laskuri++] = syotettyNimi.value;
-        if (laskuri >= limit) {
-            listaus();
-        }
+        lisaa();
+
     }
 }
 
-function listaus() {
+function lisaa() {
     listanTulostus.innerHTML = "";
     lista.forEach(n => { 
         let li = document.createElement("li");
         li.innerHTML = n;
         listanTulostus.appendChild(li);
     });
+
+}
+
+function listaltaPois(event) {
+    event.preventDefault();
+
+    lista.forEach(poista);
+    
+}
+
+function poista(syotettyNimi) {
+    listanTulostus.innerHTML = "";
 
 }
