@@ -3,8 +3,8 @@ const listanTulostus = document.querySelector("#nimet");
 const lista = [];
 let laskuri =0;
 
-document.getElementById("#form button").addEventListener("submit", listalle);
-document.getElementById("#form button2").addEventListener("submit", listaltaPois)
+document.getElementById("button").addEventListener("click", listalle);
+document.getElementById("button2").addEventListener("click", listaltaPois)
 
 function listalle(event) {
     event.preventDefault();
@@ -36,11 +36,20 @@ function lisaa() {
 function listaltaPois(event) {
     event.preventDefault();
 
-    lista.forEach(poista);
+    if (syotettyNimi.value.length < 1) {
+        return alert("Kenttä tyhjä! Syötä nimi");
+
+    } if (lista.length >= 10) {
+        alert("Lista täynnä!");
+
+    } else {
+        lista[laskuri--] = syotettyNimi.value;
+        lista.forEach(n => {
+            
+        })        
+
+    }
+
     
 }
 
-function poista(syotettyNimi) {
-    listanTulostus.innerHTML = "";
-
-}
