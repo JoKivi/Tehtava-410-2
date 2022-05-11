@@ -37,6 +37,7 @@ header {
     height: auto;
     background-origin: padding-box;
     font-size: larger;
+    width: 20em;
     border-width: 3px;
 }
 
