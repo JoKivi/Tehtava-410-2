@@ -44,23 +44,14 @@ header {
     background-color: #000080; /* Navy blue */
     color: white;
     padding: 3px 10px;
-    margin-inline-start: 35px;
-    margin-top: 5px;
+    margin-bottom: 5px;
     text-align: center;
     text-decoration: none;
     font-size: 13px;
     border-radius: 20px;
-    box-shadow: -3px 5px 10px  #0000005e;
-    float: inline-end;
+    float: inline-start;
 }
 
-/* Errors */
- .virhe {
-    color: whitesmoke;
-    font-size: medium;
-    background-color: red;
-    width: 80%;
-}
 
 #tulostusalue {
     font-size: 18px;
