@@ -1,6 +1,6 @@
 const syotettyNimi = document.querySelector("#nimi input");
 const listanTulostus = document.querySelector("#nimet");
-const lista = [];
+let lista = [];
 let laskuri =0;
 
 document.getElementById("button").addEventListener("click", listalle);
@@ -18,19 +18,9 @@ function listalle(event) {
 
     } else {
         lista[laskuri++] = syotettyNimi.value;
-        lisaa();
+        tulosta();
 
     }
-}
-
-function lisaa() {
-    listanTulostus.innerHTML = "";
-    lista.forEach(n => { 
-        let li = document.createElement("li");
-        li.innerHTML = n;
-        listanTulostus.appendChild(li);
-    });
-
 }
 
 function listaltaPois(event) {
@@ -44,12 +34,19 @@ function listaltaPois(event) {
 
     } else {
         lista[laskuri--] = syotettyNimi.value;
-        lista.forEach(n => {
-            
+        const suodatettuLista = lista.filter(nimi => {
+            return nimi != syotettyNimi;
         })        
-
+        tulosta();
     }
 
-    
+    function tulosta() {
+        listanTulostus.innerHTML ="";
+        lista.forEach(n => { 
+            let li = document.createElement("li");
+            li.innerHTML = n;
+            listanTulostus.appendChild(li);
+        });
+    }
 }
 
