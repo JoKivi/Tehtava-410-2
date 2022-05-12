@@ -19,7 +19,6 @@ function listalle(event) {
     } else {
         lista[laskuri++] = syotettyNimi.value;
         tulosta();
-
     }
 }
 
@@ -33,20 +32,20 @@ function listaltaPois(event) {
         alert("Lista täynnä!");
 
     } else {
-        lista[laskuri--] = syotettyNimi.value;
         const suodatettuLista = lista.filter(nimi => {
             return nimi != syotettyNimi;
-        })        
+        }) 
+        lista[laskuri--] = suodatettuLista;
         tulosta();
     }
+}
 
-    function tulosta() {
-        listanTulostus.innerHTML ="";
-        lista.forEach(n => { 
-            let li = document.createElement("li");
-            li.innerHTML = n;
-            listanTulostus.appendChild(li);
-        });
-    }
+function tulosta() {
+    listanTulostus.innerHTML ="";
+    lista.forEach(name => { 
+        let li = document.createElement("li");
+        li.innerHTML = name;
+        listanTulostus.appendChild(li);
+    });
 }
 
