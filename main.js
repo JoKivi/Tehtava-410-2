@@ -1,43 +1,34 @@
 const syotettyNimi = document.querySelector("#nimi input");
 const listanTulostus = document.querySelector("#nimet");
 let lista = [];
-let laskuri =0;
 
 document.getElementById("button").addEventListener("click", listalle);
-document.getElementById("button2").addEventListener("click", listaltaPois)
+document.getElementById("button2").addEventListener("click", listaltaPois);
+document.getElementById("button3").addEventListener("click", jarjesta);
+
 
 function listalle(event) {
     event.preventDefault();
-
-    //Kenttä tyhjä vai ei. Jos ei niin lisää arrayyn
-    if (syotettyNimi.value.length < 1) {
-        return alert("Kenttä tyhjä! Syötä nimi");
-
-    } if (lista.length >= 10) {
-        alert("Lista täynnä!");
-
-    } else {
-        lista[laskuri++] = syotettyNimi.value;
+    
+    if (testInput() === true) {
+        lista.push(syotettyNimi.value);
         tulosta();
     }
 }
 
 function listaltaPois(event) {
     event.preventDefault();
+    const suodatettuLista = lista.filter(nimi => {
+        return nimi != syotettyNimi.value;
+    }) 
+    lista = suodatettuLista;
+    tulosta();
+}
 
-    if (syotettyNimi.value.length < 1) {
-        return alert("Kenttä tyhjä! Syötä nimi");
-
-    } if (lista.length >= 10) {
-        alert("Lista täynnä!");
-
-    } else {
-        const suodatettuLista = lista.filter(nimi => {
-            return nimi != syotettyNimi;
-        }) 
-        lista[laskuri--] = suodatettuLista;
-        tulosta();
-    }
+function jarjesta(event) {
+    event.preventDefault();
+    lista.sort();
+    tulosta();
 }
 
 function tulosta() {
@@ -49,3 +40,16 @@ function tulosta() {
     });
 }
 
+function testInput() {
+    if (syotettyNimi.value.length < 1) {
+        alert("Kenttä tyhjä! Syötä nimi");
+        return false;
+
+    } if (lista.length >= 10) {
+        alert("Lista täynnä!");
+        return false;
+    
+    } else {
+        return true;
+    }
+}
